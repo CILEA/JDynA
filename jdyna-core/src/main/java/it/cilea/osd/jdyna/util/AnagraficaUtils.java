@@ -193,7 +193,7 @@ public class AnagraficaUtils
     {
         for (TP tipProprieta : tipologie)
         {
-            List<ValoreDTO> avaloriDTO = dto.getAnagraficaProperties().get(
+        	List<ValoreDTO> avaloriDTO = dto.getAnagraficaProperties().get(
                     tipProprieta.getShortName());
             // List<Object> avaloriDTO = anagraficaObjectDTO
             // .getAnagraficaProperties().get(tipProprieta.getShortName());
@@ -236,10 +236,11 @@ public class AnagraficaUtils
                         .size() - 1));
             }
 
-            if (avaloriDTOsize > 0)
-            {
-
-                int i = 0;
+            avaloriDTO = dto.getAnagraficaProperties().get(tipProprieta.getShortName());
+            proprieta = anagraficaSupport
+                    .getProprietaDellaTipologia(tipProprieta);
+            int i = 0;
+            if (avaloriDTO != null)
                 for (ValoreDTO valoreDTO : avaloriDTO)
                 {
                     if (valoreDTO != null && valoreDTO.getObject() != null)
@@ -252,8 +253,6 @@ public class AnagraficaUtils
                         i++;
                     }
                 }
-
-            }
         }
          
        
